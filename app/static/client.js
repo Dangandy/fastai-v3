@@ -46,7 +46,7 @@ function analyze() {
 function showRecommend(input) {
   el("image-recommend").src =
     "https://dto508s2j2p46.cloudfront.net/system/spree/products/6320/product/XLhoops.png?1546532178";
-  el("image-picked").className = "";
+  el("image-recommend").className = "";
   el("image-recommend-link").href =
     "https://mejuri.com/shop/products/oversized-thin-hoops";
 }
