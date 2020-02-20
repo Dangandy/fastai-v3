@@ -21,8 +21,11 @@ function analyze() {
   el("analyze-button").innerHTML = "Analyzing...";
   var xhr = new XMLHttpRequest();
   var loc = window.location;
-  xhr.open("POST", `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`,
-    true);
+  xhr.open(
+    "POST",
+    `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`,
+    true
+  );
   xhr.onerror = function() {
     alert(xhr.responseText);
   };
@@ -32,6 +35,7 @@ function analyze() {
       el("result-label").innerHTML = `Result = ${response["result"]}`;
     }
     el("analyze-button").innerHTML = "Analyze";
+    showRecommend(response["result"]);
   };
 
   var fileData = new FormData();
@@ -39,3 +43,10 @@ function analyze() {
   xhr.send(fileData);
 }
 
+function showRecommend(input) {
+  el("image-recommend").src =
+    "https://dto508s2j2p46.cloudfront.net/system/spree/products/6320/product/XLhoops.png?1546532178";
+  el("image-picked").className = "";
+  el("image-recommend-link").href =
+    "https://mejuri.com/shop/products/oversized-thin-hoops";
+}
