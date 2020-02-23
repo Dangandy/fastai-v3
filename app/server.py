@@ -79,7 +79,7 @@ async def setup_learner():
 
 
 loop = asyncio.get_event_loop()
-df = pd.read_csv("./cosine.csv")
+df = pd.read_csv("app/cosine.csv")
 tasks = [asyncio.ensure_future(setup_learner())]
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 sf = SaveFeatures(learn.model[1][4])
