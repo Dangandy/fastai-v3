@@ -101,12 +101,17 @@ async def analyze(request):
     print(f"prediction complete: {prediction}")
 
     # recommendation code
+    def get_cosine(x):
+        fl_list = x[1:-1].split(",")
+        _x = np.array(fl_list, dtype=np.float128)
+        return cosine(_x, base_vector)
+
     array = np.array(sf.features)
     x = array.tolist()
     base_vector = x[-1]
     print(f"base vector: {base_vector}")
-    cosine_similarity = 1 - df["img_repr"].apply(lambda x: cosine(x, base_vector))
-    similar_img_ids = np.argsort(cosine_similarity)[-1]
+    cosine_similarity = 1 - df["img_repr"].apply(get_cosine)
+    similar_img_ids = cosine_similarity.idxmax()
 
     print(f"found df: {df.iloc[similar_img_ids]}")
     image = df.iloc[similar_img_ids].image
