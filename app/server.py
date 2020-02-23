@@ -97,13 +97,16 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data["file"].read())
     img = open_image(BytesIO(img_bytes))
-    _ = learn.predict(img)
+    prediction = learn.predict(img)
+    print(f"prediction complete: {prediction}")
 
     # recommendation code
     base_vector = sf.features
+    print(f"base vector: {base_vector}")
     cosine_similarity = 1 - df["img_repr"].apply(lambda x: cosine(x, base_vector))
     similar_img_ids = np.argsort(cosine_similarity)[-1]
 
+    print(f"found df: {df.iloc[similar_img_ids]}")
     image = df.iloc[similar_img_ids].image
     title = df.iloc[similar_img_ids].title
     price = df.iloc[similar_img_ids].price
