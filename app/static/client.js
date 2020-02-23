@@ -35,7 +35,6 @@ function analyze() {
       el("result-label").innerHTML = `Result = ${response["title"]}`;
     }
     el("analyze-button").innerHTML = "Analyze";
-    showRecommend(response["result"]);
   };
 
   var fileData = new FormData();
