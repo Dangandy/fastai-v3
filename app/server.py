@@ -44,11 +44,11 @@ class SaveFeatures:
 
     def hook_fn(self, module, input, output):
         out = output.detach().cpu().numpy()
-        # if isinstance(self.features, type(None)):
-        #     self.features = out
-        # else:
-        #     self.features = np.row_stack((self.features, out))
-        self.features = out
+        if isinstance(self.features, type(None)):
+            self.features = out
+        else:
+            self.features = np.row_stack((self.features, out))
+        # self.features = out
 
     def remove(self):
         self.hook.remove()
@@ -101,7 +101,9 @@ async def analyze(request):
     print(f"prediction complete: {prediction}")
 
     # recommendation code
-    base_vector = sf.features
+    array = np.array(sf.features)
+    x = array.tolist()
+    base_vector = x[-1]
     print(f"base vector: {base_vector}")
     cosine_similarity = 1 - df["img_repr"].apply(lambda x: cosine(x, base_vector))
     similar_img_ids = np.argsort(cosine_similarity)[-1]
