@@ -1,49 +1,49 @@
 <html lang='en'>
-	<head>
-		<meta charset='utf-8'>
-		<link rel='stylesheet' href='../static/style.css'>
-		<script src='../static/client.js'></script>
-	</head>
-	<body>
-		<div>
-			<div class='center'>
-				<div class='title'>Classify Mejuri Images 💍</div>
-				<p>
-					Use images of <strong>ring, necklaces, bracelets, earring </strong>
-				</p>
-				<div class='content'>
-					<div class='no-display'>
-						<input id='file-input'
-	     class='no-display'
-	     type='file'
-	     name='file'
-	     accept='image/*'
-	     onchange='showPicked(this)'>
-					</div>
-					<button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-					<div class='upload-label'>
-						<label id='upload-label'>No file chosen</label>
-					</div>
-					<div>
-						<img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
-					</div>
-					<div class='analyze'>
-						<button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
-					</div>
-					<div class='result-label'>
-						<label id='result-label'></label>
-					</div>
-					<div style="display: flex;">
-						<a style="
-						max-height: 200;
-						max-width: 200;
-						"
-	 id='image-recommend-link' href = "#">
-							<img id='image-recommend' class='no-display' alt='Chosen Image' height='200'>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+  <head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='../static/style.css'>
+    <script src='../static/client.js'></script>
+  </head>
+  <body>
+    <div>
+      <div class='center'>
+        <div class='title'>Classify Mejuri Images 💍</div>
+        <p>
+          Use images of <strong>ring, necklaces, bracelets, earring </strong>
+        </p>
+        <div class='content'>
+          <div class='no-display'>
+            <input id='file-input'
+                   class='no-display'
+                   type='file'
+                   name='file'
+                   accept='image/*'
+                   onchange='showPicked(this)'>
+          </div>
+          <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+          <div class='upload-label'>
+            <label id='upload-label'>No file chosen</label>
+          </div>
+          <div style="display: flex;">
+            <div>
+              <a style="
+              max-height: 200;
+              max-width: 200;
+              "
+                 id='image-recommend-link' href = "#">
+                <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+              </a>
+            </div>
+            <div>
+              <h1 id='title'></h1>
+              <p id='price'></p>
+            </div>
+          </div>
+          <div class='analyze'>
+            <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

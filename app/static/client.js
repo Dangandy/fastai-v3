@@ -32,7 +32,12 @@ function analyze() {
   xhr.onload = function(e) {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
-      el("result-label").innerHTML = `Result = ${response["title"]}`;
+      // el("result-label").innerHTML = `Result = ${response["title"]}`;
+      el("image-picked").src = response["image"];
+      el("image-recommend-link").href = response["link"];
+      el("title").innerHTML = response["title"];
+      el("price").innerHTML = response["price"];
+      el("image-label").innerHTML = "Click on the image below to go to Mejuri";
     }
     el("analyze-button").innerHTML = "Analyze";
   };
