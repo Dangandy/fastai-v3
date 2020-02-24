@@ -36,7 +36,7 @@ function analyze() {
       el("image-picked").src = response["image"];
       el("image-recommend-link").href = response["link"];
       el("title").innerHTML = response["title"];
-      el("price").innerHTML = `$response["price"] USD`;
+      el("price").innerHTML = `$${response["price"]} USD`;
       el("upload-label").innerHTML =
         "Click on the image below to go to Mejuri!!";
       el("analyze-button").innerHTML = "Done";
