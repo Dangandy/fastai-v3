@@ -36,21 +36,14 @@ function analyze() {
       el("image-picked").src = response["image"];
       el("image-recommend-link").href = response["link"];
       el("title").innerHTML = response["title"];
-      el("price").innerHTML = response["price"];
-      el("image-label").innerHTML = "Click on the image below to go to Mejuri";
+      el("price").innerHTML = `$response["price"] USD`;
+      el("upload-label").innerHTML =
+        "Click on the image below to go to Mejuri!!";
+      el("analyze-button").innerHTML = "Done";
     }
-    el("analyze-button").innerHTML = "Analyze";
   };
 
   var fileData = new FormData();
   fileData.append("file", uploadFiles[0]);
   xhr.send(fileData);
-}
-
-function showRecommend(input) {
-  el("image-recommend").src =
-    "https://dto508s2j2p46.cloudfront.net/system/spree/products/6320/product/XLhoops.png?1546532178";
-  el("image-recommend").className = "";
-  el("image-recommend-link").href =
-    "https://mejuri.com/shop/products/oversized-thin-hoops";
 }
